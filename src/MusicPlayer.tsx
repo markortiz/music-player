@@ -14,13 +14,14 @@ interface DurationSettings {
   trim: boolean | 'left' | 'right';
 }
 
+// Audio Library
 const library = [
   { id: '5d353689-b81d-474c-8471-5220e27af78e', src: 'Petit Biscuit - Sunset Lover.mp3', title: 'Sunset Lover', artist: 'Petit Biscuit', album: 'Presence', albumArt: 'Petit Biscuit - Sunset Lover.jpg'},
   { id: '5c7ded41-b875-4381-8e24-0dabb00b4f5d', src: 'Chelsea Cutler - You\'re Not Missing Me.mp3', title: 'You\'re Not Missing Me', artist: 'Chelsea Cutler', album: 'You\'re Not Missing Me', albumArt: 'Chelsea Cutler - You\'re Not Missing Me.jpg'},
   { id: '5e39301e-aa8a-4169-b945-5bc4a7cb9432', src: 'MÖWE - Boy Oh Boy (feat. Jerry Williams).mp3', title: 'Boy Oh Boy', artist: 'MÖWE (feat. Jerry Williams)', album: 'Back In The Summer', albumArt: 'MÖWE - Boy Oh Boy (feat. Jerry Williams).jpg'},
 ];
 
-
+// Instantiate Audio
 const audio = new Audio();
 audio.volume = 0.2;
 
@@ -37,6 +38,7 @@ const pausePlayAudio = (playing: boolean) => {
   }
 }
 
+// MusicPlayer class
 function MusicPlayer() {
 
   const [currenttime, setCurrenttime] = useState(0);
@@ -63,29 +65,19 @@ function MusicPlayer() {
     pausePlayAudio(playing);
   }, [playing]);
   
+  // Set Previous Audio by setNowplaying(library[0])
   const prevAudio = () => {
-    const nowplayingIndex = library.findIndex(audio => nowplaying.id === audio.id);
-    const nowplayingprevIndex = nowplayingIndex - 1;
-    setPlaying(true);
-    if(nowplayingprevIndex === -1) {
-      setNowplaying(library[library.length - 1]);
-    } else {
-      setNowplaying(library[nowplayingprevIndex]);
-    }
   }
 
+  // Set Next Audio by setNowplaying(library[0])
   const nextAudio = () => {
-    const nowplayingIndex = library.findIndex(audio => nowplaying.id === audio.id);
-    const nowplayingnextIndex = nowplayingIndex + 1;
-    setPlaying(true);
-    if(nowplayingnextIndex === library.length) {
-      setNowplaying(library[0]);
-    } else {
-      setNowplaying(library[nowplayingnextIndex]);
-    }
   }
 
   const [volume, setVolume] = useState(20);
+
+  // Set Volume by audio.volume [min: 0, max: 1]
+  const changeVolume = (e: any) => {
+  }
 
   const duration = moment.duration(currenttime, 'seconds') as Duration;
   const audioduration = moment.duration(audio.duration, 'seconds') as Duration;
@@ -112,7 +104,7 @@ function MusicPlayer() {
               <a href="#" onPointerUp={() => nextAudio()} className="btn btn-next text-white btn-sm ml-2 mr-2 rounded-pill"><i className="fas fa-forward"></i></a>
             </div>
           </div>
-          <input type="range" min={0} max={100} value={volume} className="slider position-relative mb-2" onChange={(e) => { setVolume(parseInt(e.target.value, 10)); audio.volume = parseInt(e.target.value, 10) * 0.01; }}></input>
+          <input type="range" min={0} max={100} value={volume} className="slider position-relative mb-2" onChange={changeVolume}></input>
           <div className="row">
             <div className="col text-left text-white"><i className="fas fa-volume-off"></i></div>
             <div className="col text-right text-white"><i className="fas fa-volume-up"></i></div>
