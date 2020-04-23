@@ -23,7 +23,7 @@ body {
   text-shadow: 1px 1px rgba(255, 255, 255, 0.2);
 }
 
-#music-player .card-body {
+#music-player > .card >.card-body {
   backdrop-filter: blur(20px) saturate(1.5) brightness(0.75);
   background-color: rgba(255,255,255,.1);
 }

@@ -1,14 +1,27 @@
-import React from 'react';
+import React , { Suspense } from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { Route } from "react-router-dom";
+import { ConnectedRouter } from 'connected-react-router';
+import configureStore, { history } from './store/configureStore';
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './index.css';
-import MusicPlayer from './MusicPlayer';
 import * as serviceWorker from './serviceWorker';
+
+const store = configureStore();
+const MusicPlayer = React.lazy(() => import('./views/MusicPlayer/MusicPlayer'));
+const loading = () => { return (<div className="animated fadeIn pt-3 text-center"><i className="fas fa-redo fa-spin"></i></div>) };
 
 ReactDOM.render(
   <React.StrictMode>
-    <MusicPlayer />
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Suspense fallback={loading()}>
+          <Route path="/" render={() => <MusicPlayer /> } />
+        </Suspense>
+      </ConnectedRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
