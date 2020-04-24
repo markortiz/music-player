@@ -22,9 +22,9 @@ function Item(props: any) {
           </div>
           <div className="col d-flex justify-content-between align-items-center text-center" style={{flex: '0 0 30px'}}>
             {/* Add Render Condition Here if currently playing is equals to this item */}
-            {/*() &&
+            { (item.id === currentlyPlaying.id) &&
               <i className="fa fa-play"></i>
-            */}
+            }
           </div>
         </div>
       </button>
