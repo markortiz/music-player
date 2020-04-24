@@ -82,7 +82,7 @@ function MusicPlayer(props: any) {
   }
 
   const duration = moment.duration(MUSIC?.getCurrentTime(), 'seconds') as Duration;
-  const audioduration = moment.duration(MUSIC?.getDuration(), 'seconds') as Duration;
+  const audioDuration = moment.duration(MUSIC?.getDuration(), 'seconds') as Duration;
 
   const [showPlayList, setShowPlayList] = useState(false);
 
@@ -95,7 +95,7 @@ function MusicPlayer(props: any) {
           <input type="range" min={0} max={MUSIC?.getDuration() ? MUSIC.getDuration() : 0} value={currentTime} className="slider position-relative mb-2" readOnly></input>
           <div className="row mb-2">
             <div className="col text-left text-white">{duration.format('mm:ss')}</div>
-            <div className="col text-right text-white">{audioduration.format('mm:ss')}</div>
+            <div className="col text-right text-white">{audioDuration.format('mm:ss')}</div>
           </div>
           <h5 className="card-title text-white font-weight-bold mb-1">{currentlyPlaying?.title}</h5>
           <p className="card-text text-white">{currentlyPlaying?.artist}</p>
