@@ -8,7 +8,7 @@ export const setLibrary = (library: any) => {
   }
 }
 
-export const setCurrentlyplaying = (libraryItem: any) => {
+export const setCurrentlyPlaying = (libraryItem: any) => {
   return (dispatch : any, getState : any) => {
     dispatch({type: SETCURRENTLYPLAYING, libraryItem});
   }

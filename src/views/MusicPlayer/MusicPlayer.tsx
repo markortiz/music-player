@@ -28,7 +28,7 @@ MUSIC.setVolume(defaultVolume * 0.01);
 // MusicPlayer class
 function MusicPlayer(props: any) {
 
-  const { setLibrary, setCurrentlyplaying, currentlyplaying, getNext, getPrevious, setVolume, volume } = props;
+  const { setLibrary, setCurrentlyPlaying, currentlyplaying, getNext, getPrevious, setVolume, volume } = props;
 
   const [currenttime, setCurrenttime] = useState(0);
 
@@ -41,7 +41,7 @@ function MusicPlayer(props: any) {
   useEffect(() => {
     // Hydrate Library to Store
     setLibrary(library);
-    setCurrentlyplaying(library[0]);
+    setCurrentlyPlaying(library[0]);
     MUSIC.loadAudio(library[0].src, playing);
     MUSIC.audio.addEventListener('timeupdate', playingAudio);
     MUSIC.audio.addEventListener('ended', nextAudio);
@@ -56,15 +56,15 @@ function MusicPlayer(props: any) {
     MUSIC?.pausePlayAudio(playing);
   }, [playing]);
   
-  // Set Previous Audio by setCurrentlyplaying()
+  // Set Previous Audio by setCurrentlyPlaying()
   const prevAudio = () => {
   }
 
-  // Set Next Audio by setCurrentlyplaying()
+  // Set Next Audio by setCurrentlyPlaying()
   const nextAudio = () => {
   }
 
-  // Set Play Audio by setCurrentlyplaying()
+  // Set Play Audio by setCurrentlyPlaying()
   const playAudio = (libraryItem : any) => {
   }
 
@@ -122,7 +122,7 @@ function mapStateToProps(state: any) {
 function mapDispatchToProps(dispatch: any) {
   return bindActionCreators({
     setLibrary: LibraryActions.setLibrary,
-    setCurrentlyplaying: LibraryActions.setCurrentlyplaying,
+    setCurrentlyPlaying: LibraryActions.setCurrentlyPlaying,
     getNext: LibraryActions.getNext,
     getPrevious: LibraryActions.getPrevious,
     setVolume: LibraryActions.setVolume
