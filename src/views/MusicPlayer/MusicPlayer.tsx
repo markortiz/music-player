@@ -5,6 +5,7 @@ import moment from 'moment';
 import 'moment-duration-format';
 import AudioItem from './AudioItem';
 import Playlist from './Playlist/Playlist';
+import PlayListItem from './Playlist/Item/Item';
 import * as LibraryActions from '../../actions/library';
 import { library } from '../../library';
 import './MusicPlayer.css';
@@ -71,6 +72,7 @@ function MusicPlayer(props: any) {
   // Set Play Audio by setCurrentlyPlaying()
   const playAudio = (libraryItem : any) => {
     setCurrentlyPlaying(libraryItem);
+    setPlaying(true);
     MUSIC.loadAudio(libraryItem.src, playing);
   }
 
@@ -115,7 +117,11 @@ function MusicPlayer(props: any) {
             <div className="col text-right text-white"><i className="fas fa-volume-up"></i></div>
           </div>
         </div>
-        <Playlist show={showPlayList} toggle={() => { setShowPlayList(!showPlayList) }} />
+        <Playlist show={showPlayList} toggle={() => { setShowPlayList(!showPlayList) }}
+          renderItem={(item : any) => (
+            <PlayListItem key={`list-item-${item.id}`} item={item} currentlyPlaying={currentlyPlaying} onPlayAudio={playAudio} />
+          )}
+        />
       </div>
     </div>
   );
