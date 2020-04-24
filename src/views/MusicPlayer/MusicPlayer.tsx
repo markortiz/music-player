@@ -59,17 +59,19 @@ function MusicPlayer(props: any) {
   // Set Previous Audio by setCurrentlyPlaying()
   const prevAudio = () => {
     const previousSong = getPrevious();
-    setCurrentlyPlaying(previousSong);
+    playAudio(previousSong);
   }
 
   // Set Next Audio by setCurrentlyPlaying()
   const nextAudio = () => {
     const nextSong = getNext();
-    setCurrentlyPlaying(nextSong);
+    playAudio(nextSong);
   }
 
   // Set Play Audio by setCurrentlyPlaying()
   const playAudio = (libraryItem : any) => {
+    setCurrentlyPlaying(libraryItem);
+    MUSIC.loadAudio(libraryItem.src, playing);
   }
 
   // Set Volume by audio.volume [min: 0, max: 1]
