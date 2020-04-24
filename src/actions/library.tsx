@@ -19,8 +19,8 @@ export const getPrevious = () =>{
     const { library, currentlyPlaying } = getState().library;
 
     if(library.length > 0 && currentlyPlaying) {
-      const nowplayingIndex = library.findIndex((libraryItem : any) => currentlyPlaying.id === libraryItem.id);
-      const nowplayingprevIndex = nowplayingIndex - 1;
+      const nowPlayingIndex = library.findIndex((libraryItem : any) => currentlyPlaying.id === libraryItem.id);
+      const nowplayingprevIndex = nowPlayingIndex - 1;
       if(nowplayingprevIndex === -1) {
         return library[library.length - 1];
       } else {
@@ -37,12 +37,12 @@ export const getNext = () =>{
     const { library, currentlyPlaying } = getState().library;
 
     if(library.length > 0 && currentlyPlaying) {
-      const nowplayingIndex = library.findIndex((libraryItem : any) => currentlyPlaying.id === libraryItem.id);
-      const nowplayingnextIndex = nowplayingIndex + 1;
-      if(nowplayingnextIndex === library.length) {
+      const nowPlayingIndex = library.findIndex((libraryItem : any) => currentlyPlaying.id === libraryItem.id);
+      const nowPlayingNextIndex = nowPlayingIndex + 1;
+      if(nowPlayingNextIndex === library.length) {
         return library[0];
       } else {
-        return library[nowplayingnextIndex];
+        return library[nowPlayingNextIndex];
       }
     }
 
