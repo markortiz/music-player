@@ -6,7 +6,7 @@ import './Item.css';
 // Item class
 function Item(props: any) {
 
-  const { item, currentlyplaying } = props;
+  const { item, currentlyPlaying } = props;
 
   return (
     <div className="list-group-item border-white p-0" key={`item-${item.id}`}>
@@ -34,7 +34,7 @@ function Item(props: any) {
 
 function mapStateToProps(state: any) {
   return {
-    currentlyplaying: state.library.currentlyplaying
+    currentlyPlaying: state.library.currentlyPlaying
   };
 }
 

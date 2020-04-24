@@ -16,10 +16,10 @@ export const setCurrentlyPlaying = (libraryItem: any) => {
 
 export const getPrevious = () =>{
   return (dispatch : any, getState : any) => {
-    const { library, currentlyplaying } = getState().library;
+    const { library, currentlyPlaying } = getState().library;
 
-    if(library.length > 0 && currentlyplaying) {
-      const nowplayingIndex = library.findIndex((libraryItem : any) => currentlyplaying.id === libraryItem.id);
+    if(library.length > 0 && currentlyPlaying) {
+      const nowplayingIndex = library.findIndex((libraryItem : any) => currentlyPlaying.id === libraryItem.id);
       const nowplayingprevIndex = nowplayingIndex - 1;
       if(nowplayingprevIndex === -1) {
         return library[library.length - 1];
@@ -34,10 +34,10 @@ export const getPrevious = () =>{
 
 export const getNext = () =>{
   return (dispatch : any, getState : any) => {
-    const { library, currentlyplaying } = getState().library;
+    const { library, currentlyPlaying } = getState().library;
 
-    if(library.length > 0 && currentlyplaying) {
-      const nowplayingIndex = library.findIndex((libraryItem : any) => currentlyplaying.id === libraryItem.id);
+    if(library.length > 0 && currentlyPlaying) {
+      const nowplayingIndex = library.findIndex((libraryItem : any) => currentlyPlaying.id === libraryItem.id);
       const nowplayingnextIndex = nowplayingIndex + 1;
       if(nowplayingnextIndex === library.length) {
         return library[0];

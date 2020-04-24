@@ -28,7 +28,7 @@ MUSIC.setVolume(defaultVolume * 0.01);
 // MusicPlayer class
 function MusicPlayer(props: any) {
 
-  const { setLibrary, setCurrentlyPlaying, currentlyplaying, getNext, getPrevious, setVolume, volume } = props;
+  const { setLibrary, setCurrentlyPlaying, currentlyPlaying, getNext, getPrevious, setVolume, volume } = props;
 
   const [currenttime, setCurrenttime] = useState(0);
 
@@ -80,16 +80,16 @@ function MusicPlayer(props: any) {
   return (
     <div id="music-player" className="d-flex justify-content-center align-items-center">
       <div className="card bg-transparent">
-        <img src={`${currentlyplaying?.albumArt}`} className="card-img-top" alt={currentlyplaying?.title} />
-        <img src={`${currentlyplaying?.albumArt}`} className="card-img-background position-absolute" alt={currentlyplaying?.title} />
+        <img src={`${currentlyPlaying?.albumArt}`} className="card-img-top" alt={currentlyPlaying?.title} />
+        <img src={`${currentlyPlaying?.albumArt}`} className="card-img-background position-absolute" alt={currentlyPlaying?.title} />
         <div className="card-body text-center">
           <input type="range" min={0} max={MUSIC?.getDuration() ? MUSIC.getDuration() : 0} value={currenttime} className="slider position-relative mb-2" readOnly></input>
           <div className="row mb-2">
             <div className="col text-left text-white">{duration.format('mm:ss')}</div>
             <div className="col text-right text-white">{audioduration.format('mm:ss')}</div>
           </div>
-          <h5 className="card-title text-white font-weight-bold mb-1">{currentlyplaying?.title}</h5>
-          <p className="card-text text-white">{currentlyplaying?.artist}</p>
+          <h5 className="card-title text-white font-weight-bold mb-1">{currentlyPlaying?.title}</h5>
+          <p className="card-text text-white">{currentlyPlaying?.artist}</p>
           <div className="row mb-4">
             <div className="col">
               <a href="#" onPointerUp={() => prevAudio()} className="btn btn-prev text-white btn-sm ml-2 mr-2 rounded-pill"><i className="fas fa-backward"></i></a>
@@ -114,7 +114,7 @@ function MusicPlayer(props: any) {
 
 function mapStateToProps(state: any) {
   return {
-    currentlyplaying: state.library.currentlyplaying,
+    currentlyPlaying: state.library.currentlyPlaying,
     volume: state.library.volume
   };
 }
