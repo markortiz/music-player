@@ -84,7 +84,7 @@ function MusicPlayer(props: any) {
   const duration = moment.duration(MUSIC?.getCurrentTime(), 'seconds') as Duration;
   const audioduration = moment.duration(MUSIC?.getDuration(), 'seconds') as Duration;
 
-  const [showplaylist, setShowplaylist] = useState(false);
+  const [showPlayList, setShowPlayList] = useState(false);
 
   return (
     <div id="music-player" className="d-flex justify-content-center align-items-center">
@@ -115,7 +115,7 @@ function MusicPlayer(props: any) {
             <div className="col text-right text-white"><i className="fas fa-volume-up"></i></div>
           </div>
         </div>
-        <Playlist show={showplaylist} toggle={() => { setShowplaylist(!showplaylist) }} />
+        <Playlist show={showPlayList} toggle={() => { setShowPlayList(!showPlayList) }} />
       </div>
     </div>
   );
