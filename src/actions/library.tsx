@@ -20,11 +20,11 @@ export const getPrevious = () =>{
 
     if(library.length > 0 && currentlyPlaying) {
       const nowPlayingIndex = library.findIndex((libraryItem : any) => currentlyPlaying.id === libraryItem.id);
-      const nowplayingprevIndex = nowPlayingIndex - 1;
-      if(nowplayingprevIndex === -1) {
+      const nowPlayingPrevIndex = nowPlayingIndex - 1;
+      if(nowPlayingPrevIndex === -1) {
         return library[library.length - 1];
       } else {
-        return library[nowplayingprevIndex];
+        return library[nowPlayingPrevIndex];
       }
     }
 
