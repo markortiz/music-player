@@ -6,11 +6,11 @@ import './Item.css';
 // Item class
 function Item(props: any) {
 
-  const { item, currentlyPlaying } = props;
+  const { item, currentlyPlaying, onPlayAudio } = props;
 
   return (
     <div className="list-group-item border-white p-0" key={`item-${item.id}`}>
-      <button className="btn btn-block btn-outline-light text-left border-0 rounded-0" onPointerUp={() => { /* Play audio item on click */ }}>
+      <button className="btn btn-block btn-outline-light text-left border-0 rounded-0" onPointerUp={() => { onPlayAudio(item) }}>
         <div className="row no-gutters">
           <div className="col mr-3" style={{flex: '0 0 50px'}}>
             <img src={item.albumArt} alt={item.title}/>
