@@ -30,10 +30,10 @@ function MusicPlayer(props: any) {
 
   const { setLibrary, setCurrentlyPlaying, currentlyPlaying, getNext, getPrevious, setVolume, volume } = props;
 
-  const [currenttime, setCurrenttime] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
 
   const playingAudio = (event: Event) => {
-    setCurrenttime(MUSIC.getCurrentTime());
+    setCurrentTime(MUSIC.getCurrentTime());
   }
 
   const [playing, setPlaying] = useState(false);
@@ -83,7 +83,7 @@ function MusicPlayer(props: any) {
         <img src={`${currentlyPlaying?.albumArt}`} className="card-img-top" alt={currentlyPlaying?.title} />
         <img src={`${currentlyPlaying?.albumArt}`} className="card-img-background position-absolute" alt={currentlyPlaying?.title} />
         <div className="card-body text-center">
-          <input type="range" min={0} max={MUSIC?.getDuration() ? MUSIC.getDuration() : 0} value={currenttime} className="slider position-relative mb-2" readOnly></input>
+          <input type="range" min={0} max={MUSIC?.getDuration() ? MUSIC.getDuration() : 0} value={currentTime} className="slider position-relative mb-2" readOnly></input>
           <div className="row mb-2">
             <div className="col text-left text-white">{duration.format('mm:ss')}</div>
             <div className="col text-right text-white">{audioduration.format('mm:ss')}</div>
