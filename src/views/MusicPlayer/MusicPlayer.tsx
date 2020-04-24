@@ -64,6 +64,8 @@ function MusicPlayer(props: any) {
 
   // Set Next Audio by setCurrentlyPlaying()
   const nextAudio = () => {
+    const nextSong = getNext();
+    setCurrentlyPlaying(nextSong);
   }
 
   // Set Play Audio by setCurrentlyPlaying()
