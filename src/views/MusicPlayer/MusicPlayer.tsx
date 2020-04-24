@@ -76,6 +76,9 @@ function MusicPlayer(props: any) {
 
   // Set Volume by audio.volume [min: 0, max: 1]
   const changeVolume = (e: any) => {
+    const newVolumeValue = e.target?.value;
+    setVolume(newVolumeValue);
+    MUSIC.setVolume(newVolumeValue * 0.01);
   }
 
   const duration = moment.duration(MUSIC?.getCurrentTime(), 'seconds') as Duration;
