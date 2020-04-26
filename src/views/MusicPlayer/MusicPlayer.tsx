@@ -99,15 +99,15 @@ function MusicPlayer(props: any) {
             <div className="col text-left text-white">{duration.format('mm:ss')}</div>
             <div className="col text-right text-white">{audioDuration.format('mm:ss')}</div>
           </div>
-          <h5 className="card-title text-white font-weight-bold mb-1">{currentlyPlaying?.title}</h5>
+          <h5 className="card-title text-white font-weight-bold mb-1" data-testid="song-title">{currentlyPlaying?.title}</h5>
           <p className="card-text text-white">{currentlyPlaying?.artist}</p>
           <div className="row mb-4">
             <div className="col">
-              <a href="#" onPointerUp={() => prevAudio()} className="btn btn-prev text-white btn-sm ml-2 mr-2 rounded-pill"><i className="fas fa-backward"></i></a>
-              <a href="#" onPointerUp={() => setPlaying(!playing)} className="btn btn-play-pause text-white btn-outline-secondary p-0 ml-2 mr-2 rounded-pill">
+              <a href="#" onPointerUp={() => prevAudio()} data-testid="prev-audio-button" className="btn btn-prev text-white btn-sm ml-2 mr-2 rounded-pill"><i className="fas fa-backward"></i></a>
+              <a href="#" onPointerUp={() => setPlaying(!playing)} data-testid="play-audio-button" className="btn btn-play-pause text-white btn-outline-secondary p-0 ml-2 mr-2 rounded-pill">
                 {playing ? <i className="fa fa-pause"></i> : <i className="fa fa-play"></i>}
               </a>
-              <a href="#" onPointerUp={() => nextAudio()} className="btn btn-next text-white btn-sm ml-2 mr-2 rounded-pill"><i className="fas fa-forward"></i></a>
+              <a href="#" onPointerUp={() => nextAudio()} data-testid="next-audio-button" className="btn btn-next text-white btn-sm ml-2 mr-2 rounded-pill"><i className="fas fa-forward"></i></a>
             </div>
           </div>
           <input type="range" min={0} max={100} value={volume} className="slider position-relative mb-2" onChange={changeVolume}></input>
