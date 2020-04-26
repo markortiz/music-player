@@ -49,3 +49,9 @@ it('can adjust volume', async () => {
   fireEvent.change(volumeSlider, { target: { value:50 }});
   await waitFor(() => expect(screen.getByTestId('volume-display')).toHaveTextContent('50%'));
 });
+
+it('can show playlist', async () => {
+  const playlistButton = screen.getByTestId('playlist-toggle-button');
+  fireEvent.pointerUp(playlistButton);
+  await waitFor(() => expect(screen.queryByText('Playlist')).toBeInTheDocument());
+});

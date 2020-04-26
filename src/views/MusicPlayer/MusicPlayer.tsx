@@ -110,10 +110,10 @@ function MusicPlayer(props: any) {
               <a href="#" onPointerUp={() => nextAudio()} data-testid="next-audio-button" className="btn btn-next text-white btn-sm ml-2 mr-2 rounded-pill"><i className="fas fa-forward"></i></a>
             </div>
           </div>
-          <input type="range" min={0} max={100} value={volume} className="slider position-relative mb-2" onChange={changeVolume}></input>
+          <input type="range" min={0} max={100} value={volume} data-testid="volume-slider" className="slider position-relative mb-2" onChange={changeVolume}></input>
           <div className="row mb-5">
             <div className="col text-left text-white"><i className="fas fa-volume-off"></i></div>
-            <div className="col text-center text-white">{`${volume}%`}</div>
+            <div className="col text-center text-white" data-testid="volume-display">{`${volume}%`}</div>
             <div className="col text-right text-white"><i className="fas fa-volume-up"></i></div>
           </div>
         </div>

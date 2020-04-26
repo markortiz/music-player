@@ -12,7 +12,7 @@ function Playlist(props: any) {
     <div id="playlist" className={`${show ? `show` : ``}`}>
       <div className="row">
         <div className="col">
-          <button id="playlist-toggle" onPointerUp={() => { toggle(); }} className="btn btn-block p-3 pl-5 pr-5">
+          <button id="playlist-toggle" onPointerUp={() => { toggle(); }} data-testid="playlist-toggle-button" className="btn btn-block p-3 pl-5 pr-5">
             <div className="bg-white rounded-pill"></div>
           </button>
         </div>
