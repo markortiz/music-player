@@ -43,3 +43,9 @@ it('can go to previous song', async () => {
   fireEvent.pointerUp(prevButton);
   await waitFor(() => expect(screen.getByTestId('song-title')).toHaveTextContent('Boy Oh Boy'));
 });
+
+it('can adjust volume', async () => {
+  const volumeSlider = screen.getByTestId('volume-slider');
+  fireEvent.change(volumeSlider, { target: { value:50 }});
+  await waitFor(() => expect(screen.getByTestId('volume-display')).toHaveTextContent('50%'));
+});
