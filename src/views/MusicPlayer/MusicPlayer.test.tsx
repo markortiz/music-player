@@ -37,3 +37,9 @@ it('can go to next song', async () => {
   fireEvent.pointerUp(nextButton);
   await waitFor(() => expect(screen.getByTestId('song-title')).toHaveTextContent('You\'re Not Missing Me'));
 });
+
+it('can go to previous song', async () => {
+  const prevButton = screen.getByTestId('prev-audio-button');
+  fireEvent.pointerUp(prevButton);
+  await waitFor(() => expect(screen.getByTestId('song-title')).toHaveTextContent('Boy Oh Boy'));
+});
